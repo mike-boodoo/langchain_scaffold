@@ -1,0 +1,60 @@
+[project]
+name = "advanced-ai-stack"
+version = "0.1.0"
+description = "Advanced LlamaIndex + MCP + Pydantic + LangChain AI reference architecture"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+  {name = "Advanced AI Stack Contributors"}
+]
+
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.34,<1",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.6,<3",
+
+  "llama-index>=0.13",
+  "llama-index-llms-openai>=0.4",
+  "llama-index-embeddings-openai>=0.4",
+
+  "langchain>=1.4,<2",
+  "langchain-openai>=1,<2",
+  "langchain-mcp-adapters>=0.3,<0.4",
+
+  "mcp[cli]>=2,<3",
+  "tenacity>=9,<10",
+  "python-dotenv>=1,<2"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+  "pytest-asyncio>=1,<2",
+  "mypy>=1.15,<2",
+  "ruff>=0.11,<1"
+]
+
+[project.scripts]
+ai-agent = "app.main:main"
+index-data = "app.index:main"
+mcp-server = "app.mcp_server:main"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+check_untyped_defs = true

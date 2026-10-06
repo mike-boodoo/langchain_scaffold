@@ -1,0 +1,15 @@
+Advanced AI Stack
+
+This example document exists so the repository can be indexed immediately.
+
+A robust AI application benefits from separating agent orchestration,
+knowledge retrieval, tool execution, and typed application state.
+
+LlamaIndex can manage document ingestion and retrieval. MCP can expose
+capabilities as protocol-level tools and resources. LangChain can orchestrate
+model and tool execution. Pydantic can enforce typed contracts at system
+boundaries.
+
+A useful architecture treats model output as a proposal rather than an
+authority. The application validates the proposed operation before executing
+external side effects.
